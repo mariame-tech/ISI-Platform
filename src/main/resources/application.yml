@@ -17,4 +17,4 @@ keycloak:
     server-url: http://localhost:8180
     realm: ISI-Platform # This should be insertion-pro-realm
     client-id: user-service
-    client-secret: MVXfkF5mNQcCWQXw4d2k2aAbgvXlAMKh
+    client-secret:  ${KEYCLOAK_SECRET:}
