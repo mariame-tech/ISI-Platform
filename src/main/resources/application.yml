@@ -1,0 +1,20 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: user-service
+  # === THIS SECTION IS MISSING AND MUST BE ADDED ===
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # This line tells Spring Security where to find your Keycloak realm to validate tokens
+          issuer-uri: http://localhost:8180/realms/ISI-Platform
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+# This is your existing configuration for the admin client
+keycloak:
+  admin-client:
+    server-url: http://localhost:8180
+    realm: ISI-Platform # This should be insertion-pro-realm
+    client-id: user-service
+    client-secret: MVXfkF5mNQcCWQXw4d2k2aAbgvXlAMKh
