@@ -1,0 +1,16 @@
+/* src/pages/admin/AdminDashboard.css */
+.admin-container { background-color: #2c3e50; color: #ecf0f1; font-family: 'Consolas', monospace; min-height: 100vh; }
+.main-nav-admin { background: #1a252f; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 50px; border-bottom: 2px solid #556983; }
+.nav-left, .nav-right, .nav-items { display: flex; align-items: center; gap: 20px; }
+.logo-admin { font-weight: bold; color: #e74c3c; text-transform: uppercase; }
+.nav-item-admin { cursor: pointer; padding: 6px 12px; text-transform: uppercase; }
+.nav-item-admin.active, .nav-item-admin:hover { border: 1px solid #e74c3c; color: #e74c3c; }
+.admin-info { font-size: 12px; text-transform: uppercase; color: #bdc3c7; }
+.logout-btn-admin { background: #e74c3c; color: white; border: none; padding: 6px 10px; cursor: pointer; text-transform: uppercase; }
+.page-content-admin { padding: 20px; }
+.page-title-admin { font-size: 20px; margin-bottom: 25px; text-transform: uppercase; }
+.status-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+.status-card { background: #1a252f; border: 1px solid #556983; padding: 20px; text-align: center; }
+.status-indicator { font-size: 24px; font-weight: bold; margin-bottom: 8px; }
+.status-online { color: #27ae60; } .status-info { color: #3498db; } .status-error { color: #e74c3c; } .status-warning { color: #f39c12; }
+.status-label { font-size: 11px; color: #bdc3c7; text-transform: uppercase; }

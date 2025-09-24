@@ -1,4 +1,5 @@
 package com.isi_platform.user_service.service;
+
 import com.isi_platform.user_service.dto.UserRegistrationRequest;
 import jakarta.ws.rs.core.Response;
 import org.keycloak.admin.client.Keycloak;
@@ -7,7 +8,7 @@ import org.keycloak.admin.client.resource.UsersResource;
 import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
-import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -15,9 +16,12 @@ import java.util.Collections;
 @Service
 public class UserServiceImpl implements UserService {
     private final Keycloak keycloak;
+    private final String targetRealm; // NOUVEAU: Champ pour stocker le nom du realm cible
 
-    public UserServiceImpl(Keycloak keycloak) {
+    // MODIFIÉ: Le constructeur injecte maintenant le nom du realm depuis application.yml
+    public UserServiceImpl(Keycloak keycloak, @Value("${keycloak.admin-client.target-realm}") String targetRealm) {
         this.keycloak = keycloak;
+        this.targetRealm = targetRealm;
     }
 
     @Override
@@ -40,7 +44,8 @@ public class UserServiceImpl implements UserService {
         user.setCredentials(Collections.singletonList(credential));
 
         // (3) Obtenir la ressource du royaume et créer l'utilisateur
-        RealmResource realmResource = keycloak.realm("ISI-Platform"); // Assurez-vous que le nom du royaume est correct
+        // MODIFIÉ: Utilise la variable 'targetRealm' au lieu d'un texte en dur
+        RealmResource realmResource = keycloak.realm(targetRealm);
         UsersResource usersResource = realmResource.users();
 
         // (4) Envoyer la requête de création à Keycloak
@@ -50,8 +55,14 @@ public class UserServiceImpl implements UserService {
         if (response.getStatus() != 201) {
             // Gérer l'erreur : l'utilisateur existe peut-être déjà ou les données sont invalides
             // Vous pouvez lancer une exception personnalisée ici.
-            throw new RuntimeException("Échec de la création de l'utilisateur dans Keycloak, statut : " + response.getStatusInfo().getReasonPhrase());
+            String errorMessage = "Échec de la création de l'utilisateur dans Keycloak. Statut: " + response.getStatus();
+            if (response.hasEntity()) {
+                errorMessage += ", Raison: " + response.readEntity(String.class);
+            }
+            response.close(); // Important: Toujours fermer la réponse pour libérer les ressources
+            throw new RuntimeException(errorMessage);
         }
+        response.close(); // Fermer aussi en cas de succès
 
         // (6) Récupérer l'ID de l'utilisateur créé pour lui assigner un rôle
         String userId = response.getLocation().getPath().replaceAll(".*/([^/]+)$", "$1");

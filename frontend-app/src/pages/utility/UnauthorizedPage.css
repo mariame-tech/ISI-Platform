@@ -1,0 +1,48 @@
+/* src/pages/utility/UnauthorizedPage.css */
+
+.unauthorized-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* Centre verticalement dans l'espace disponible */
+  text-align: center;
+  padding: 2rem;
+}
+
+.unauthorized-icon {
+  font-size: 5rem; /* Agrandit l'icône */
+  margin-bottom: 1.5rem;
+}
+
+.unauthorized-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #e74c3c; /* Une couleur rouge pour indiquer une erreur/interdiction */
+  margin-bottom: 1rem;
+}
+
+.unauthorized-text {
+  font-size: 1.2rem;
+  color: #aab8c2;
+  max-width: 500px;
+  margin-bottom: 2.5rem;
+}
+
+.unauthorized-link {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  color: #282c34;
+  background-color: #61dafb; /* Bleu React */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.unauthorized-link:hover {
+  background-color: #4fa8c5;
+}

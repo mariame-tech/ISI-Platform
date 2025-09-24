@@ -1,5 +1,6 @@
 server:
   port: 8083
+  address: 127.0.0.1
 spring:
   application:
     name: user-service
@@ -15,6 +16,13 @@ spring:
 keycloak:
   admin-client:
     server-url: http://localhost:8180
-    realm: ISI-Platform # This should be insertion-pro-realm
-    client-id: user-service
-    client-secret:  ${KEYCLOAK_SECRET:}
+    # NOUVEAU: Le realm pour l'authentification de l'admin
+    admin-realm: master
+    # NOUVEAU: Le client ID pour l'admin
+    admin-client-id: admin-cli
+    # NOUVEAU: Le nom d'utilisateur de l'admin (avec une valeur par défaut pour le dev)
+    admin-username: ${KEYCLOAK_ADMIN_USER:admin}
+    # NOUVEAU: Le mot de passe de l'admin (avec une valeur par défaut pour le dev)
+    admin-password: ${KEYCLOAK_ADMIN_PASSWORD:admin}
+    # Le realm que notre service doit gérer
+    target-realm: ISI-Platform

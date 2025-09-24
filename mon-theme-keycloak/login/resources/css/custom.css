@@ -1,0 +1,94 @@
+/*
+ * =========================================================================
+ * Thème Personnalisé Amélioré
+ * =========================================================================
+ */
+
+/* 1. Variables de couleur pour une modification facile */
+:root {
+    --main-bg-color: #282c34;
+    --card-bg-color: #20232a;
+    --primary-color: #61dafb; /* Bleu React */
+    --primary-color-hover: #4fa8c5;
+    --text-color: #ecf0f1;
+    --label-color: #aab8c2;
+    --input-bg-color: #2c3e50;
+    --input-border-color: #556983;
+}
+
+/* 2. Style général de la page */
+body {
+    background-color: var(--main-bg-color);
+    background-image: none; /* On s'assure de supprimer l'image de fond par défaut */
+}
+
+/* 3. Conteneur principal de la carte de connexion */
+.login-pf-page .card-pf {
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--input-border-color);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+        max-width: 450px;
+        margin: 0 auto;
+}
+
+/* 4. En-tête et logo */
+#kc-header-wrapper {
+    color: var(--text-color);
+    padding-bottom: 20px;
+}
+
+#kc-header-wrapper::before {
+    content: '';
+    display: block;
+    background-image: url(../img/logo.jpeg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 120px;
+    margin-bottom: 120px;
+}
+
+/* On cache le titre du realm, notre logo suffit */
+h1#kc-page-title {
+    display: none;
+}
+
+/* 5. Champs de formulaire (input) */
+form .pf-c-form__group .pf-c-form-control {
+    background-color: var(--input-bg-color);
+    border: 1px solid var(--input-border-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    padding: 12px;
+}
+
+form .pf-c-form__group .pf-c-form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 1px var(--primary-color);
+}
+
+/* Labels (étiquettes "Username", "Password") */
+label {
+    color: var(--label-color) !important;
+}
+
+/* 6. Bouton de connexion */
+#kc-form-buttons .pf-c-button.pf-m-primary {
+    background-color: var(--primary-color) !important;
+    color: var(--card-bg-color) !important;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#kc-form-buttons .pf-c-button.pf-m-primary:hover {
+    background-color: var(--primary-color-hover) !important;
+}
+
+/* 7. Liens (S'inscrire, Mot de passe oublié) */
+#kc-form-options a {
+    color: var(--primary-color);
+}

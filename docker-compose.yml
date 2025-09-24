@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  keycloak:
+    # On dit à Docker Compose de construire l'image en utilisant
+    # le Dockerfile qui se trouve dans le dossier actuel (build: .)
+    build: .
+    image: isi-platform/keycloak:custom
+    container_name: keycloak-dev
+    command: start-dev
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    ports:
+      - "8180:8080"
+    volumes:
+      # Persiste les données de Keycloak dans notre dossier local
+      - ./keycloak-data:/opt/keycloak/data

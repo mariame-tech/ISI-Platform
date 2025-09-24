@@ -1,0 +1,156 @@
+/* src/pages/diplome/DiplomeDashboard.css */
+.diplome-container { 
+    background-color: #f5f5f5; 
+    color: #333; 
+    min-height: 100vh; 
+}
+
+
+.main-nav { 
+    background: #2c3e50; 
+    color: white; 
+    padding: 0 20px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    height: 60px; 
+}
+
+
+.nav-left, .nav-right, .nav-items, .user-profile { 
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+}
+
+
+.logo { 
+    font-size: 20px; 
+    font-weight: bold; 
+    color: #3498db; 
+}
+
+
+.nav-item { 
+    cursor: pointer; 
+    padding: 8px 15px; 
+    border-radius: 4px; 
+    transition: background 0.3s;
+}
+
+
+.nav-item.active, .nav-item:hover { 
+    background: #34495e; 
+}
+
+
+.user-avatar { 
+    width: 35px; 
+    height: 35px; 
+    border-radius: 50%; 
+    background: #3498db; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-weight: bold; 
+}
+
+
+.user-name { 
+    font-weight: bold; 
+}
+
+
+.user-status { 
+    font-size: 12px; 
+    color: #bdc3c7; 
+}
+
+
+.logout-btn { 
+    background: #e74c3c; 
+    color: white; 
+    border: none; 
+    padding: 8px 12px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+}
+
+
+.page-content-diplome { 
+    padding: 30px; 
+}
+
+
+.welcome-title { 
+    font-size: 28px; 
+    color: #2c3e50; 
+    margin-bottom: 25px; 
+}
+
+
+.alert-banner { 
+    background: #f39c12; 
+    color: white; 
+    padding: 15px; 
+    border-radius: 8px; 
+    margin-bottom: 25px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.alert-btn { 
+    background: rgba(255,255,255,0.2); 
+    border: 1px solid white; 
+    color: white; 
+    cursor: pointer; 
+    padding: 5px 10px; 
+}
+
+
+.dashboard-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 25px; 
+}
+
+
+.dashboard-card { 
+    background: white; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+}
+
+
+.card-header { 
+    padding: 15px; 
+    font-weight: bold; 
+    background: #f0f0f0; 
+    border-bottom: 1px solid #ddd; 
+}
+
+
+.card-content { 
+    padding: 15px; 
+}
+
+
+.notification-icon { 
+    position: relative; 
+}
+
+
+.notification-badge { 
+    position: absolute; 
+    top: -5px; 
+    right: -5px; 
+    background: #e74c3c; 
+    border-radius: 50%; 
+    width: 18px; 
+    height: 18px; 
+    font-size: 11px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}

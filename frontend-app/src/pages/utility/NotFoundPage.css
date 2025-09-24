@@ -1,0 +1,52 @@
+/* src/pages/utility/NotFoundPage.css */
+
+.notfound-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Prend toute la hauteur disponible dans son conteneur parent */
+  text-align: center;
+  color: #aab8c2;
+  padding: 2rem;
+}
+
+.notfound-title {
+  font-size: 8rem; /* Très grand "404" */
+  font-weight: bold;
+  color: #556983;
+  margin: 0;
+  line-height: 1;
+}
+
+.notfound-subtitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ecf0f1; /* Blanc cassé */
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.notfound-text {
+  font-size: 1.2rem;
+  max-width: 500px;
+  margin-bottom: 2.5rem;
+}
+
+.notfound-link {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  color: #282c34;
+  background-color: #61dafb; /* Bleu React */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.notfound-link:hover {
+  background-color: #4fa8c5;
+}
